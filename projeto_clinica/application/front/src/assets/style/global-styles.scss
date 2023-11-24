@@ -92,11 +92,31 @@ $front-theme: mat.define-light-theme((
 /*----------------------    Start Bootstrap custom    ----------------------*/
 
 .btn-primary, .bg-primary{
-    background-color: $primary !important;
+  background-color: $primary !important;
 }
 
 .btn-secondary, .bg-secondary{
-    background-color: $secondary !important;
+  background-color: $secondary !important;
 }
 
 /*-----------------------    End Bootstrap custom    -----------------------*/
+
+/*---------------------    Start components styles    ----------------------*/
+
+.private-link{
+  display: flex;
+  justify-content: center;
+}
+
+.private-link a{
+  font-size: 80%;
+  color: $secondary;
+  font-size: small;
+}
+
+.private-link:hover{
+  scale: 1.2;
+  transition: 1s;
+}
+
+/*----------------------    End components styles    -----------------------*/
