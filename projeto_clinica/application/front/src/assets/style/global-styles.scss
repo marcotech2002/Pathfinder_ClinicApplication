@@ -1,0 +1,102 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary: #2E157F;
+$secondary: #75E3F5;
+
+$my_palette-primary: (
+  50: #ECE6F4,
+  100: #CEC1E3,
+  200: #AE98D1,
+  300: #8F6FBF,
+  400: #7751B2,
+  500: #6033A4,
+  600: #572E9F,
+  700: #4B2696,
+  800: #40218E,
+  900: $primary,
+  contrast: (
+    50: null,
+    100: null,
+    200: null,
+    300: null,
+    400: null,
+    500: null,
+    600: null,
+    700: null,
+    800: null,
+    900: null,
+  )
+);
+
+$my_palette-secondary: (
+  50: #DFF8FD,
+  100: #AEEFF9,
+  200: $secondary,
+  300: #2FD8EF,
+  400: #00CFEA,
+  500: #00C5E5,
+  600: #00B5D1,
+  700: #00A0B6,
+  800: #008C9D,
+  900: #006870,
+  contrast: (
+    50: null,
+    100: null,
+    200: null,
+    300: null,
+    400: null,
+    500: null,
+    600: null,
+    700: null,
+    800: null,
+    900: null,
+  )
+);
+
+$front-primary: mat.define-palette($my_palette-primary, 900);
+$front-accent: mat.define-palette($my_palette-secondary, 200);
+
+// The warn palette is optional (defaults to red).
+$front-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$front-theme: mat.define-light-theme((
+  color: (
+    primary: $front-primary,
+    accent: $front-accent,
+    warn: $front-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($front-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+/*----------------------    Start Bootstrap custom    ----------------------*/
+
+.btn-primary, .bg-primary{
+    background-color: $primary !important;
+}
+
+.btn-secondary, .bg-secondary{
+    background-color: $secondary !important;
+}
+
+/*-----------------------    End Bootstrap custom    -----------------------*/
