@@ -3,14 +3,14 @@
     <div class="row private-logo">
       <img class="col-8" src="../../../assets/images/logo.ico">
     </div>
-    <form>
+    <form [formGroup]="form">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp">
       </div>
       <div class="mb-4">
         <label for="exampleInputPassword1" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" maxlength="8">
       </div>
       <div class="row private-others mb-4">
         <div class="col-12 private-link">

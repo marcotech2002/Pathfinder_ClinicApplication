@@ -68,6 +68,9 @@ $my_palette-secondary: (
 
 $front-primary: mat.define-palette($my_palette-primary, 900);
 $front-accent: mat.define-palette($my_palette-secondary, 200);
+$front-typography: mat.define-typography-config(
+  $font-family: 'Georgia',
+);
 
 // The warn palette is optional (defaults to red).
 $front-warn: mat.define-palette(mat.$red-palette);
@@ -79,7 +82,8 @@ $front-theme: mat.define-light-theme((
     primary: $front-primary,
     accent: $front-accent,
     warn: $front-warn,
-  )
+  ),
+  typography: $front-typography
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -117,6 +121,15 @@ $front-theme: mat.define-light-theme((
 .private-link:hover{
   scale: 1.2;
   transition: 1s;
+}
+
+.private-modal_button{
+  display: flex;
+  justify-content: right;
+}
+
+.private-modal_button button{
+  background-color: $secondary;
 }
 
 /*----------------------    End components styles    -----------------------*/
