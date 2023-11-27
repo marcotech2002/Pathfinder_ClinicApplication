@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "DESKTOP-U46HO21",
+            "port": 1433,
+            "driver": "MSSQL",
+            "database": "CLINICA_DB",
+            "name": "Projeto_clinica",
+            "group": "Aplicações_web",
+            "username": "host"
+        }
+    ]
+}
