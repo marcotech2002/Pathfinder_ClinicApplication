@@ -1,0 +1,7 @@
+python -m pipenv shell
+pipenv install fastapi
+pipenv install "uvicorn[standard]"
+pipenv install sqlalchemy
+pipenv install pyscopg2
+pipenv install psycopg2
+uvicorn main:app --reload

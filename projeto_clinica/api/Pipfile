@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-uvicorn = {extras = ["standard"], version = "*"}
 sqlalchemy = "*"
+pyscopg2 = "*"
+psycopg2 = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 

@@ -1,7 +1,12 @@
-from sqlalchemy import Column, Integer, String
-from pydantic import BaseModel
-from data.config import Base
+from sqlalchemy import Column, Integer, String, ForeignKey
+from data.data_base_config import Base
+from sqlalchemy.orm import relationship, Mapped
 from person import Person
+from typing import Generic, TypeVar, Optional
+from pydantic import BaseModel
+from pydantic.generics import GenericModel
+
+T = TypeVar('T')
 
 class User(Base):
     __tablename__ = "Users"
@@ -11,16 +16,18 @@ class User(Base):
     username: str = Column(String(40), nullable=False)
     password: str = Column(String(8), nullable=False)
 
+    person: Mapped["Person"] = relationship("Person")
+
 class UserBase(BaseModel):
     username: str
     password: str
+    person: Person
 
 class UserRequest(UserBase):
     ...
 
-class UserResponse(UserBase):
-    id: int
-
-    class Config:
-        from_attributes = True
-        populate_by_name = True
+class UserResponse(GenericModel, Generic[T]):
+    code: str
+    status: str
+    message: str
+    result: Optional[T]
